@@ -1,0 +1,51 @@
+<template>
+  <!-- // router-view 按具体链接渲染 -->
+  <div class="container text-center">
+      <div class="col-12" style="height: 100%">
+        <NeighborhoodView></NeighborhoodView>
+      </div>
+  </div>
+</template>
+  
+  // 首页
+  
+<script>
+// @ is an alias to /src
+import NeighborhoodView from './NeighborhoodView.vue'
+import axios from 'axios'
+// import { ref } from 'vue'
+
+export default {
+  name: 'HomeView',
+  components: {
+    NeighborhoodView,
+  },
+  setup() {
+    axios({
+      url: "http://81.70.183.49:8000/vueApi/hello_world"  //如果不指定method，默认发送get请求
+    }).then(res => {
+      console.log(res)
+    })
+  }
+}
+</script>
+
+<style scoped>
+.container {
+  margin-top: 20px;
+}
+.card {
+    user-select: none;
+    cursor: pointer; 
+    -webkit-transition: all .5s; 
+    -moz-transition: all .5s; 
+    -ms-transition: all .5s; 
+    -o-transition: all .5s; 
+    transition: all .5s;
+    background-color: white;
+}
+.card:hover {
+    background-color: #F6F7F5;
+}
+</style>
+  
